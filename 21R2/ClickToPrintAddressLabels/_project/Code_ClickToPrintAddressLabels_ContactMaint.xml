@@ -1,0 +1,75 @@
+﻿<Graph ClassName="ClickToPrintAddressLabels_ContactMaint" Source="#CDATA" IsNew="True" FileType="NewFile">
+    <CDATA name="Source"><![CDATA[using PX.Common;
+using PX.Data.BQL.Fluent;
+using PX.Data.BQL;
+using PX.Data.MassProcess;
+using PX.Data;
+using PX.EP;
+using PX.Objects.AR;
+using PX.Objects.CR.Extensions.CRContactAccountDataSync;
+using PX.Objects.CR.Extensions.CRCreateActions;
+using PX.Objects.CR.Extensions.CRDuplicateEntities;
+using PX.Objects.CR.Extensions.Relational;
+using PX.Objects.CR.Extensions;
+using PX.Objects.CR.MassProcess;
+using PX.Objects.CR;
+using PX.Objects.CS;
+using PX.Objects.EP;
+using PX.Objects.Extensions.ContactAddress;
+using PX.Objects.GL;
+using PX.Objects;
+using PX.SM;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System;
+
+namespace ClickToPrintAddressLabels
+{
+    public class ClickToPrintAddressLabels_ContactMaint_Extension : PXGraphExtension<ContactMaint>
+    {
+        #region PrintAddressLabelMB
+        public PXAction<Contact> PrintAddressLabelMB;
+        [PXButton(CommitChanges = true, PopupVisible = false, VisibleOnDataSource = false)]
+        [PXUIField(DisplayName = "MB")]
+        protected virtual void printAddressLabelMB()
+        {
+            var reportParams = new Dictionary<string, string>();
+            string bAccountID = Base.ContactCurrent.Current.ContactID.ToString();
+            reportParams.Add("ContactType", "PN");
+            reportParams.Add("ContactID", bAccountID);
+            var printSettings = new PrintSettings
+            {
+                PrintWithDeviceHub = true,
+                DefinePrinterManually = true,
+                PrinterID = new Guid("A4ECBE80-F583-403D-AFD8-C485E0BACB0C"),
+                NumberOfCopies = 1
+            };
+            SMPrintJobMaint g = PXGraph.CreateInstance<SMPrintJobMaint>();
+            g.AddPrintJob("Address label (MB)", printSettings, "GACRADCO", reportParams, null);
+        }
+        #endregion
+        #region PrintAddressLabelNH
+        public PXAction<Contact> PrintAddressLabelNH;
+        [PXButton(CommitChanges = true, PopupVisible = false, VisibleOnDataSource = false)]
+        [PXUIField(DisplayName = "NH")]
+        protected virtual void printAddressLabelNH()
+        {
+            var reportParams = new Dictionary<string, string>();
+            string bAccountID = Base.ContactCurrent.Current.ContactID.ToString();
+            reportParams.Add("ContactType", "PN");
+            reportParams.Add("ContactID", bAccountID);
+            var printSettings = new PrintSettings
+            {
+                PrintWithDeviceHub = true,
+                DefinePrinterManually = true,
+                PrinterID = new Guid("22BD7FCA-037C-4A8E-9145-2ADCFBF71BEE"),
+                NumberOfCopies = 1
+            };
+            SMPrintJobMaint g = PXGraph.CreateInstance<SMPrintJobMaint>();
+            g.AddPrintJob("Address label (NH)", printSettings, "GACRADCO", reportParams, null);
+        }
+        #endregion
+    }
+}]]></CDATA>
+</Graph>

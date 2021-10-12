@@ -1,0 +1,77 @@
+﻿<Graph ClassName="ClickToPrintAddressLabels_VendorMaint" Source="#CDATA" IsNew="True" FileType="NewFile">
+    <CDATA name="Source"><![CDATA[using Branch = PX.SM.Branch;
+using CRLocation = PX.Objects.CR.Standalone.Location;
+using PX.Data.BQL.Fluent;
+using PX.Data.BQL;
+using PX.Data.ReferentialIntegrity.Attributes;
+using PX.Data;
+using PX.Objects.AP;
+using PX.Objects.CA;
+using PX.Objects.CM;
+using PX.Objects.CR.Extensions.CRCreateActions;
+using PX.Objects.CR.Extensions.Relational;
+using PX.Objects.CR.Extensions;
+using PX.Objects.CR;
+using PX.Objects.CS;
+using PX.Objects.Common;
+using PX.Objects.GDPR;
+using PX.Objects.GL;
+using PX.Objects.GraphExtensions.ExtendBAccount;
+using PX.Objects.IN;
+using PX.Objects.PO;
+using PX.Objects.TX;
+using PX.Objects;
+using PX.SM;
+using System.Collections.Generic;
+using System.Collections;
+using System.Globalization;
+using System.Linq;
+using System;
+
+namespace ClickToPrintAddressLabels
+{
+    public class ClickToPrintAddressLabels_VendorMaint_Extension : PXGraphExtension<VendorMaint>
+    {
+        #region PrintAddressLabelMB
+        public PXAction<VendorR> PrintAddressLabelMB;
+        [PXButton(CommitChanges = true, PopupVisible = false, VisibleOnDataSource = false)]
+        [PXUIField(DisplayName = "MB")]
+        protected virtual void printAddressLabelMB()
+        {
+            var reportParams = new Dictionary<string, string>();
+            string bAccountID = Base.CurrentVendor.Current.BAccountID.ToString();
+            reportParams.Add("BAccountID", bAccountID);
+            var printSettings = new PrintSettings
+            {
+                PrintWithDeviceHub = true,
+                DefinePrinterManually = true,
+                PrinterID = new Guid("A4ECBE80-F583-403D-AFD8-C485E0BACB0C"),
+                NumberOfCopies = 1
+            };
+            SMPrintJobMaint g = PXGraph.CreateInstance<SMPrintJobMaint>();
+            g.AddPrintJob("Address label (MB)", printSettings, "GAAPADVE", reportParams, null);
+        }
+        #endregion
+        #region PrintAddressLabelNH
+        public PXAction<VendorR> PrintAddressLabelNH;
+        [PXButton(CommitChanges = true, PopupVisible = false, VisibleOnDataSource = false)]
+        [PXUIField(DisplayName = "NH")]
+        protected virtual void printAddressLabelNH()
+        {
+            var reportParams = new Dictionary<string, string>();
+            string bAccountID = Base.CurrentVendor.Current.BAccountID.ToString();
+            reportParams.Add("BAccountID", bAccountID);
+            var printSettings = new PrintSettings
+            {
+                PrintWithDeviceHub = true,
+                DefinePrinterManually = true,
+                PrinterID = new Guid("22BD7FCA-037C-4A8E-9145-2ADCFBF71BEE"),
+                NumberOfCopies = 1
+            };
+            SMPrintJobMaint g = PXGraph.CreateInstance<SMPrintJobMaint>();
+            g.AddPrintJob("Address label (NH)", printSettings, "GAAPADVE", reportParams, null);
+        }
+        #endregion
+    }
+}]]></CDATA>
+</Graph>

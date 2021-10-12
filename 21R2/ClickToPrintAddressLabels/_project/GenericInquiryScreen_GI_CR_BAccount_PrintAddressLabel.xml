@@ -1,0 +1,390 @@
+﻿<GenericInquiryScreen>
+    <data-set>
+        <relations format-version="3" relations-version="20201113" main-table="GIDesign" stable-sharing="True" file-name="(Name)">
+            <link from="GIFilter (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIGroupBy (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIMassAction (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIMassUpdateField (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GINavigationScreen (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GINavigationParameter (DesignID, NavigationScreenLineNbr)" to="GINavigationScreen (DesignID, LineNbr)" />
+            <link from="GIOn (DesignID, RelationNbr)" to="GIRelation (DesignID, LineNbr)" />
+            <link from="GIRecordDefault (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIRelation (DesignID, ParentTable)" to="GITable (DesignID, Alias)" />
+            <link from="GIRelation (DesignID, ChildTable)" to="GITable (DesignID, Alias)" />
+            <link from="GIResult (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIResult (ObjectName, DesignID)" to="GITable (Alias, DesignID)" />
+            <link from="GISort (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GITable (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIWhere (DesignID)" to="GIDesign (DesignID)" />
+            <link from="SiteMap (Url)" to="GIDesign (DesignID)" type="WeakByUrl" linkname="toDesignById" baseurl="~/GenericInquiry/GenericInquiry.aspx" paramnames="id" />
+            <link from="SiteMap (Url)" to="GIDesign (Name)" type="WeakByUrl" linkname="toDesignByName" baseurl="~/GenericInquiry/GenericInquiry.aspx" />
+            <link from="ListEntryPoint (ListScreenID)" to="SiteMap (ScreenID)" />
+            <link from="SiteMap (ScreenID)" to="GIDesign (PrimaryScreenIDNew)" linkname="to1Screen" />
+            <link from="FilterHeader (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="FilterRow (FilterID)" to="FilterHeader (FilterID)" />
+            <link from="PivotTable (NoteID)" to="FilterHeader (RefNoteID)" />
+            <link from="PivotField (ScreenID, PivotTableID)" to="PivotTable (ScreenID, PivotTableID)" />
+            <link from="MUIScreen (NodeID)" to="SiteMap (NodeID)" />
+            <link from="MUIWorkspace (WorkspaceID)" to="MUIScreen (WorkspaceID)" type="FromMaster" linkname="workspaceToScreen" split-location="yes" updateable="True" />
+            <link from="MUISubcategory (SubcategoryID)" to="MUIScreen (SubcategoryID)" type="FromMaster" updateable="True" />
+            <link from="MUITile (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="MUIWorkspace (WorkspaceID)" to="MUITile (WorkspaceID)" type="FromMaster" linkname="workspaceToTile" split-location="yes" updateable="True" />
+            <link from="MUIArea (AreaID)" to="MUIWorkspace (AreaID)" type="FromMaster" updateable="True" />
+            <link from="MUIPinnedScreen (NodeID, WorkspaceID)" to="MUIScreen (NodeID, WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+            <link from="MUIFavoriteWorkspace (WorkspaceID)" to="MUIWorkspace (WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+            <link from="GIDesign (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIFilter (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIFilter (NoteID)" to="GIFilterKvExt (RecordID)" type="RowKvExt" />
+            <link from="GIGroupBy (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIOn (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIRelation (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIResult (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIResult (NoteID)" to="GIResultKvExt (RecordID)" type="RowKvExt" />
+            <link from="GISort (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GITable (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIWhere (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="FilterHeader (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="FilterHeader (NoteID)" to="FilterHeaderKvExt (RecordID)" type="RowKvExt" />
+        </relations>
+        <layout>
+            <table name="GIDesign">
+                <table name="GIFilter" uplink="(DesignID) = (DesignID)">
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    <table name="GIFilterKvExt" uplink="(NoteID) = (RecordID)" />
+                </table>
+                <table name="GIGroupBy" uplink="(DesignID) = (DesignID)">
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                </table>
+                <table name="GIMassAction" uplink="(DesignID) = (DesignID)" />
+                <table name="GIMassUpdateField" uplink="(DesignID) = (DesignID)" />
+                <table name="GINavigationScreen" uplink="(DesignID) = (DesignID)">
+                    <table name="GINavigationParameter" uplink="(DesignID, LineNbr) = (DesignID, NavigationScreenLineNbr)" />
+                </table>
+                <table name="GIRecordDefault" uplink="(DesignID) = (DesignID)" />
+                <table name="GISort" uplink="(DesignID) = (DesignID)">
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                </table>
+                <table name="GITable" uplink="(DesignID) = (DesignID)">
+                    <table name="GIRelation" uplink="(DesignID, Alias) = (DesignID, ParentTable)">
+                        <table name="GIOn" uplink="(DesignID, LineNbr) = (DesignID, RelationNbr)">
+                            <table name="Note" uplink="(NoteID) = (NoteID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    </table>
+                    <table name="GIResult" uplink="(Alias, DesignID) = (ObjectName, DesignID)">
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                        <table name="GIResultKvExt" uplink="(NoteID) = (RecordID)" />
+                    </table>
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                </table>
+                <table name="GIWhere" uplink="(DesignID) = (DesignID)">
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                </table>
+                <table name="SiteMap" uplink="(DesignID) = (Url)" linkname="toDesignById">
+                    <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                        <table name="FilterHeaderKvExt" uplink="(NoteID) = (RecordID)" />
+                    </table>
+                    <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+                        <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+                    </table>
+                    <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+                </table>
+                <table name="SiteMap" uplink="(Name) = (Url)" linkname="toDesignByName">
+                    <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                        <table name="FilterHeaderKvExt" uplink="(NoteID) = (RecordID)" />
+                    </table>
+                    <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+                        <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+                    </table>
+                    <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+                </table>
+                <table name="SiteMap" uplink="(PrimaryScreenIDNew) = (ScreenID)" linkname="to1Screen">
+                    <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                        <table name="FilterHeaderKvExt" uplink="(NoteID) = (RecordID)" />
+                    </table>
+                    <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+                        <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+                    </table>
+                    <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+                </table>
+                <table name="Note" uplink="(NoteID) = (NoteID)" />
+            </table>
+            <table name="MUIWorkspace">
+                <table name="MUIFavoriteWorkspace" uplink="(WorkspaceID) = (WorkspaceID)" />
+            </table>
+            <table name="MUISubcategory" />
+            <table name="MUIArea" />
+        </layout>
+        <data>
+            <GIDesign>
+                <row DesignID="ce30bbf6-1d66-4267-85d3-ca4f7616b2ba" Name="GI-CR_BAccount-PrintAddressLabel" FilterColCount="2" PageSize="0" ExportTop="0" PrimaryScreenIDNew="CR303000" NewRecordCreationEnabled="1" MassDeleteEnabled="0" AutoConfirmDelete="0" MassRecordsUpdateEnabled="0" MassActionsOnRecordsEnabled="1" ExposeViaOData="0" ExposeViaMobile="0" ShowDeletedRecords="0" NotesAndFilesTable="$&lt;None&gt;">
+                    <GIFilter LineNbr="6" IsActive="1" Name="ShowInactive" FieldName="PX.Data.Maintenance.GI.CheckboxCombobox+checkbox" DataType="string" DisplayName="Inactive" IsExpression="1" ColSpan="1" Required="0" />
+                    <GIFilter LineNbr="4" IsActive="1" Name="ShowActive" FieldName="PX.Data.Maintenance.GI.CheckboxCombobox+checkbox" DataType="string" DisplayName="Active" IsExpression="1" DefaultValue="True" ColSpan="1" Required="0" />
+                    <GIFilter LineNbr="3" IsActive="1" Name="ShowVendors" FieldName="PX.Data.Maintenance.GI.CheckboxCombobox+checkbox" DataType="string" DisplayName="Vendors (includes 'Customer &amp; Vendor' accounts)" IsExpression="1" DefaultValue="False" ColSpan="1" Required="0" />
+                    <GIFilter LineNbr="2" IsActive="1" Name="ShowCustomers" FieldName="PX.Data.Maintenance.GI.CheckboxCombobox+checkbox" DataType="string" DisplayName="Customers (includes 'Customer &amp; Vendor' accounts)" IsExpression="1" DefaultValue="True" ColSpan="1" Required="0" />
+                    <GIFilter LineNbr="1" IsActive="1" Name="ShowBAccounts" FieldName="PX.Data.Maintenance.GI.CheckboxCombobox+checkbox" DataType="string" DisplayName="Propects (neither 'Customers' nor 'Vendors')" IsExpression="1" DefaultValue="False" ColSpan="1" Required="0" />
+                    <GIMassAction MassActionID="16" ActionName="PrintAddressLabelNH@Action" IsActive="1" />
+                    <GIMassAction MassActionID="15" ActionName="PrintAddressLabelMB@Action" IsActive="1" />
+                    <GIMassUpdateField FieldID="70" FieldName="ClassID" IsActive="1" />
+                    <GINavigationScreen Link="CR303000" LineNbr="1" SortOrder="1" WindowMode="W" IsActive="1">
+                        <GINavigationParameter LineNbr="1" FieldName="AcctCD" ParameterName="BAccount.AcctCD" IsExpression="0" />
+                    </GINavigationScreen>
+                    <GISort LineNbr="1" IsActive="1" DataFieldName="BAccount.acctCD" SortOrder="A" />
+                    <GITable Alias="ParentAccount" Name="PX.Objects.CR.BAccount">
+                        <GIResult LineNbr="30" SortOrder="29" IsActive="1" Field="acctName" Caption="Parent Account Name" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="97842ef7-f54c-4a05-8824-3ab9d93d8c78" />
+                        <GIResult LineNbr="12" SortOrder="11" IsActive="1" Field="acctCD" Caption="Parent Business Account" Width="120" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="684a2bfd-fff4-4645-9812-cbca61c62adb" />
+                    </GITable>
+                    <GITable Alias="Owner" Name="PX.SM.Users" />
+                    <GITable Alias="LastModifiedBy" Name="PX.SM.Users">
+                        <GIResult LineNbr="13" SortOrder="12" IsActive="1" Field="fullName" Caption="Last Modified By" Width="120" IsVisible="0" DefaultNav="0" QuickFilter="0" FastFilter="1" RowID="f2ac978e-46b9-44eb-8c18-006dd36c7084" />
+                    </GITable>
+                    <GITable Alias="EPCompanyTree" Name="PX.TM.EPCompanyTree" />
+                    <GITable Alias="CreatedBy" Name="PX.SM.Users">
+                        <GIResult LineNbr="15" SortOrder="14" IsActive="1" Field="fullName" Caption="Created By" Width="120" IsVisible="0" DefaultNav="0" QuickFilter="0" FastFilter="1" RowID="12a126d0-373a-460a-ac83-a6fef8b7e43d" />
+                    </GITable>
+                    <GITable Alias="CRCustomerClass" Name="PX.Objects.CR.CRCustomerClass">
+                        <GIResult LineNbr="31" SortOrder="30" IsActive="1" Field="description" Caption="Class Name" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="f9219dfd-2542-49cd-8cc6-3b9a9d14b20b" />
+                    </GITable>
+                    <GITable Alias="Country" Name="PX.Objects.CS.Country" />
+                    <GITable Alias="Contact" Name="PX.Objects.CR.Contact">
+                        <GIResult LineNbr="20" SortOrder="19" IsActive="1" Field="duplicateStatus" Width="100" IsVisible="0" DefaultNav="1" QuickFilter="1" FastFilter="1" RowID="cf01268e-f087-4d93-ad02-939a5c687f73" />
+                        <GIResult LineNbr="19" SortOrder="18" IsActive="1" Field="fax" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="800a4717-632e-49da-92b4-0c8850db2924" />
+                        <GIResult LineNbr="18" SortOrder="17" IsActive="1" Field="phone3" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="0b84a41c-ee5f-42e6-a698-d53569832490" />
+                        <GIResult LineNbr="17" SortOrder="16" IsActive="1" Field="phone2" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="6107f94a-641c-4995-929e-44ab070a457d" />
+                        <GIResult LineNbr="11" SortOrder="10" IsActive="1" Field="webSite" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="d638ba5a-8a50-4961-954e-23d041cc589d" />
+                        <GIResult LineNbr="10" SortOrder="9" IsActive="1" Field="phone1" Width="150" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="05ea5595-b975-4b46-b369-539121234fb9" />
+                        <GIResult LineNbr="9" SortOrder="8" IsActive="1" Field="eMail" Width="150" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="e2001d57-6f56-470c-9a0f-248afb124194" />
+                        <GIResult LineNbr="3" SortOrder="3" IsActive="1" Field="fullName" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="45a42438-3d3d-4119-a3ac-6b380c8b3190" />
+                    </GITable>
+                    <GITable Alias="BAccount" Name="PX.Objects.CR.BAccount">
+                        <GIRelation LineNbr="7" ChildTable="CRCustomerClass" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="7" ParentField="classID" Condition="E " ChildField="cRCustomerClassID" Operation="A" />
+                        </GIRelation>
+                        <GIRelation LineNbr="6" ChildTable="Address" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="6" ParentField="defAddressID" Condition="E " ChildField="addressID" Operation="A" />
+                        </GIRelation>
+                        <GIRelation LineNbr="5" ChildTable="ParentAccount" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="5" ParentField="parentBAccountID" Condition="E " ChildField="bAccountID" Operation="A" />
+                        </GIRelation>
+                        <GIRelation LineNbr="4" ChildTable="EPCompanyTree" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="4" ParentField="workgroupID" Condition="E " ChildField="workGroupID" Operation="A" />
+                        </GIRelation>
+                        <GIRelation LineNbr="3" ChildTable="LastModifiedBy" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="3" ParentField="lastModifiedByID" Condition="E " ChildField="pKID" Operation="A" />
+                        </GIRelation>
+                        <GIRelation LineNbr="2" ChildTable="CreatedBy" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="2" ParentField="createdByID" Condition="E " ChildField="pKID" Operation="A" />
+                        </GIRelation>
+                        <GIRelation LineNbr="1" ChildTable="Contact" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="1" ParentField="DefContactID" Condition="E " ChildField="ContactID" Operation="A" />
+                        </GIRelation>
+                        <GIResult LineNbr="38" SortOrder="6" IsActive="1" Field="type" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="0" RowID="2b5cda5f-98fe-49d4-a105-e5057797ea41" />
+                        <GIResult LineNbr="37" SortOrder="35" IsActive="1" Field="ENTITY_Attributes" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="8cb24f3c-6020-45f7-a8b6-a2e8d490bcd9" />
+                        <GIResult LineNbr="36" SortOrder="34" IsActive="1" Field="TXYEARST_Attributes" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="94cedc27-129e-45c8-a8ef-03358b0dcd0c" />
+                        <GIResult LineNbr="35" SortOrder="33" IsActive="1" Field="CONTVERIFY_Attributes" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="c6927d5d-0f34-4f33-8358-1b988e6d8a27" />
+                        <GIResult LineNbr="34" SortOrder="32" IsActive="1" Field="ACTVERIFY_Attributes" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="2bc4923b-3e2c-421f-ace5-3cff29ebbd23" />
+                        <GIResult LineNbr="33" SortOrder="31" IsActive="1" Field="SERVICES_Attributes" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="4e901665-9a51-4f18-be01-1864e372d000" />
+                        <GIResult LineNbr="29" SortOrder="28" IsActive="1" Field="ownerID" Caption="Owner ID" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="0" RowID="8706393d-5a27-4dcc-9d8f-359e6cb82b4b" />
+                        <GIResult LineNbr="28" SortOrder="27" IsActive="1" Field="campaignSourceID" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="ae9fe424-d619-4ac1-b9ac-aa743ba903d8" />
+                        <GIResult LineNbr="27" SortOrder="26" IsActive="0" Field="acctReferenceNbr" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="8941d0e2-49d1-4be3-8bf5-2620a6e89ce9" />
+                        <GIResult LineNbr="16" SortOrder="15" IsActive="1" Field="createdDateTime" Width="80" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="0" RowID="cefe3b5f-842f-4252-98bc-c898b61f3a43" />
+                        <GIResult LineNbr="14" SortOrder="13" IsActive="1" Field="lastModifiedDateTime" Width="100" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="0" RowID="ff5963a5-c7fc-4d0e-afbe-06ac97ee3c86" />
+                        <GIResult LineNbr="8" SortOrder="7" IsActive="1" Field="workgroupID_description" Caption="Workgroup" IsVisible="0" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="3fdb080e-7f24-4ec1-a12d-0bc52dfd002b" />
+                        <GIResult LineNbr="6" SortOrder="5" IsActive="1" Field="status" Width="100" IsVisible="0" DefaultNav="1" QuickFilter="1" FastFilter="1" RowID="2ffaf24d-4738-436a-bb70-e9bc2f4cf086" />
+                        <GIResult LineNbr="5" SortOrder="4" IsActive="1" Field="classID" Width="120" IsVisible="0" DefaultNav="1" QuickFilter="1" FastFilter="1" RowID="bd2cb344-fb35-41ef-93de-377992c16a26" />
+                        <GIResult LineNbr="2" SortOrder="2" IsActive="1" Field="acctName" Caption="Business Account Name" Width="230" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="964bcd2d-1ac0-4fc7-8003-80ad6e2073f1" />
+                        <GIResult LineNbr="1" SortOrder="1" IsActive="1" Field="AcctCD" Caption="Business Account" Width="120" IsVisible="1" DefaultNav="0" NavigationNbr="1" QuickFilter="0" FastFilter="1" RowID="9f1bac30-d1cc-4a7b-9eb6-9e3e5c0faaff" />
+                    </GITable>
+                    <GITable Alias="Address" Name="PX.Objects.CR.Address">
+                        <GIRelation LineNbr="9" ChildTable="Country" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="9" ParentField="countryID" Condition="E " ChildField="countryID" Operation="A" />
+                        </GIRelation>
+                        <GIResult LineNbr="26" SortOrder="25" IsActive="1" Field="countryID" Caption="Country ID" Width="80" IsVisible="0" DefaultNav="0" QuickFilter="0" FastFilter="1" RowID="4a3687c6-74c6-46a6-9055-538d03edcd8b" />
+                        <GIResult LineNbr="25" SortOrder="24" IsActive="1" Field="postalCode" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="835c4070-e760-4c29-ac2c-61877e6d1dc5" />
+                        <GIResult LineNbr="24" SortOrder="23" IsActive="1" Field="state" Width="80" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="1" RowID="f87829d6-4179-439e-ba33-07f23f9377c2" />
+                        <GIResult LineNbr="23" SortOrder="22" IsActive="1" Field="city" Width="100" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="b789eb71-04f5-4f76-9432-84b9e57b7c44" />
+                        <GIResult LineNbr="22" SortOrder="21" IsActive="1" Field="addressLine2" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="3026250d-ef46-43a9-a974-bdbefb45f6af" />
+                        <GIResult LineNbr="21" SortOrder="20" IsActive="1" Field="addressLine1" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="54180094-bc3c-43fb-b0a1-e28d4b57f0cf" />
+                    </GITable>
+                    <GIWhere LineNbr="29" IsActive="1" DataFieldName="BAccount.status" Condition="NE" IsExpression="1" Value1="I" CloseBrackets=")        " Operation="A" />
+                    <GIWhere LineNbr="28" IsActive="1" DataFieldName="BAccount.status" Condition="E " IsExpression="1" Value1="I" CloseBrackets=")        " Operation="O" />
+                    <GIWhere LineNbr="27" IsActive="1" OpenBrackets="((       " DataFieldName="[ShowInactive]" Condition="E " IsExpression="1" Value1="True" Value2="False" Operation="A" />
+                    <GIWhere LineNbr="23" IsActive="1" DataFieldName="BAccount.status" Condition="E " IsExpression="1" Value1="I" CloseBrackets=")        " Operation="A" />
+                    <GIWhere LineNbr="22" IsActive="1" DataFieldName="BAccount.status" Condition="NE" IsExpression="1" Value1="I" CloseBrackets=")        " Operation="O" />
+                    <GIWhere LineNbr="21" IsActive="1" OpenBrackets="((       " DataFieldName="[ShowActive]" Condition="E " IsExpression="1" Value1="True" Value2="False" Operation="A" />
+                    <GIWhere LineNbr="20" IsActive="1" DataFieldName="BAccount.type" Condition="NE" IsExpression="1" Value1="VC" CloseBrackets=")        " Operation="A" />
+                    <GIWhere LineNbr="19" IsActive="1" DataFieldName="BAccount.type" Condition="E " IsExpression="1" Value1="VC" CloseBrackets=")        " Operation="O" />
+                    <GIWhere LineNbr="18" IsActive="1" DataFieldName="[ShowVendors]" Condition="E " IsExpression="1" Value1="True" Value2="False" CloseBrackets=")        " Operation="A" />
+                    <GIWhere LineNbr="17" IsActive="1" OpenBrackets="(((      " DataFieldName="[ShowCustomers]" Condition="E " IsExpression="1" Value1="True" Value2="False" Operation="O" />
+                    <GIWhere LineNbr="16" IsActive="1" DataFieldName="BAccount.type" Condition="NE" IsExpression="1" Value1="VE" CloseBrackets=")        " Operation="A" />
+                    <GIWhere LineNbr="15" IsActive="1" DataFieldName="BAccount.type" Condition="E " IsExpression="1" Value1="VE" CloseBrackets=")        " Operation="O" />
+                    <GIWhere LineNbr="14" IsActive="1" OpenBrackets="((       " DataFieldName="[ShowVendors]" Condition="E " IsExpression="1" Value1="True" Value2="False" Operation="A" />
+                    <GIWhere LineNbr="13" IsActive="1" DataFieldName="BAccount.type" Condition="NE" IsExpression="1" Value1="CU" CloseBrackets=")        " Operation="A" />
+                    <GIWhere LineNbr="12" IsActive="1" DataFieldName="BAccount.type" Condition="E " IsExpression="1" Value1="CU" CloseBrackets=")        " Operation="O" />
+                    <GIWhere LineNbr="10" IsActive="1" OpenBrackets="((       " DataFieldName="[ShowCustomers]" Condition="E " IsExpression="1" Value1="True" Value2="False" Operation="A" />
+                    <GIWhere LineNbr="9" IsActive="1" DataFieldName="BAccount.type" Condition="NE" IsExpression="1" Value1="PR" CloseBrackets=")        " Operation="A" />
+                    <GIWhere LineNbr="8" IsActive="1" DataFieldName="BAccount.type" Condition="E " IsExpression="1" Value1="PR" CloseBrackets=")        " Operation="O" />
+                    <GIWhere LineNbr="6" IsActive="1" OpenBrackets="((       " DataFieldName="[ShowBAccounts]" Condition="E " IsExpression="1" Value1="True" Value2="False" Operation="A" />
+                    <GIWhere LineNbr="5" IsActive="1" DataFieldName="BAccount.type" Condition="NE" IsExpression="0" Value1="OB" Operation="A" />
+                    <GIWhere LineNbr="4" IsActive="1" DataFieldName="BAccount.type" Condition="NE" IsExpression="0" Value1="OR" Operation="A" />
+                    <GIWhere LineNbr="2" IsActive="1" DataFieldName="BAccount.type" Condition="NE" IsExpression="0" Value1="CP" Operation="A" />
+                    <GIWhere LineNbr="1" IsActive="1" DataFieldName="BAccount.type" Condition="NE" IsExpression="0" Value1="EP" Operation="A" />
+                    <SiteMap linkname="to1Screen">
+                        <row Position="4097.984375" Title="Business Accounts" Url="~/Pages/CR/CR303000.aspx" NodeID="8f5a8005-bf6f-40e9-9689-9fe74f0acdad" ParentID="52813126-6fe8-4c93-8f42-a49b1b96f419">
+                            <FilterHeader FilterID="0000cff2-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="Tax Return" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53234">
+                                <FilterRow FilterRowNbr="17" OpenBrackets="0" DataField="Subject" Condition="6" ValueSt="Return" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="16" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="SC DOCREQ" ValueSt2="" CloseBrackets="1" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="15" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="SC DISCLOS" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="14" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX SMLLC" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="13" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX SCTR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="12" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX QBS" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="11" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX PYR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="10" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX PTR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="9" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX ITR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="8" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX GTR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="7" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX FTR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="6" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX CTR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="5" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX ASMLLC" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="4" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX ASCTR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="3" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX APTR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="TX AITR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="1" OpenBrackets="1" DataField="CaseClassID" Condition="0" ValueSt="TX ACTR" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000cff1-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="Sales Tax" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53233">
+                                <FilterRow FilterRowNbr="3" OpenBrackets="0" DataField="Subject" Condition="6" ValueSt="Tax" ValueSt2="" CloseBrackets="1" Operator="0" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="2" OpenBrackets="1" DataField="Subject" Condition="6" ValueSt="Sales" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="ST FILING" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000cfec-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="Bookkeeping" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53228">
+                                <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="Subject" Condition="6" ValueSt="Bookkeeping" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="7" ValueSt="BK" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="000000e6-0000-0000-0000-000000000000" UserName="admin" ViewName="Activities" FilterName="Open Activities" IsDefault="0" IsShared="1" IsShortcut="1" IsSystem="0" IsHidden="0" FilterOrder="230">
+                                <FilterRow FilterRowNbr="38" OpenBrackets="0" DataField="UIStatus" Condition="0" ValueSt="OP" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="000000df-0000-0000-0000-000000000000" UserName="admin" ViewName="Activities" FilterName="Open Tasks And Events" IsDefault="0" IsShared="1" IsShortcut="1" IsSystem="0" IsHidden="0" FilterOrder="223">
+                                <FilterRow FilterRowNbr="21" OpenBrackets="0" DataField="ClassInfo" Condition="0" ValueSt="Event" CloseBrackets="1" Operator="0" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="20" OpenBrackets="1" DataField="ClassInfo" Condition="0" ValueSt="Task" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="19" OpenBrackets="0" DataField="UIStatus" Condition="0" ValueSt="OP" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000cfbb-0000-0000-0000-000000000000" UserName="admin" ViewName="Leads" FilterName="Closed" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53179">
+                                <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="Status" Condition="0" ValueSt="D" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Status" Condition="0" ValueSt="C" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000cfba-0000-0000-0000-000000000000" UserName="admin" ViewName="Leads" FilterName="Open" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53178">
+                                <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="Status" Condition="1" ValueSt="D" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Status" Condition="1" ValueSt="C" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d1b1-0000-0000-0000-000000000000" UserName="NISKEN24" ViewName="Cases" FilterName="C$ Report" IsDefault="1" IsShared="0" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53681">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="BA REPORT" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d1a9-0000-0000-0000-000000000000" UserName="NISKEN24" ViewName="Cases" FilterName="BA  meeting Sort" IsDefault="0" IsShared="0" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53673">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="BA MEETING" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d19f-0000-0000-0000-000000000000" UserName="MILVER21" ViewName="Cases" FilterName="BA Meeting Sort" IsDefault="1" IsShared="0" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53663">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="BA MEETING" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d198-0000-0000-0000-000000000000" UserName="MILVER21" ViewName="Cases" FilterName="BA Client Files" IsDefault="0" IsShared="0" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53656">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Subject" Condition="6" ValueSt="client file" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d197-0000-0000-0000-000000000000" UserName="NISKEN24" ViewName="Cases" FilterName="Client File" IsDefault="0" IsShared="0" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53655">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Subject" Condition="6" ValueSt="Client" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d08a-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="1099s" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53386">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="6" ValueSt="1099" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d152-0000-0000-0000-000000000000" UserName="MARGAB58" ViewName="Cases" FilterName="bk" IsDefault="0" IsShared="0" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53586">
+                                <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="Subject" Condition="6" ValueSt="1099" ValueSt2="" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="6" ValueSt="BK" ValueSt2="1099" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d031-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Activities" FilterName="&lt; 35 days" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53297">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CreatedDateTime" Condition="3" ValueSt="@Today-35" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d129-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="BA Report" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53545">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="BA REPORT" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d128-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="BA Meeting" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53544">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="BA MEETING" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d028-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="Employee Docs" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53288">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="PREMPLOYEE" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d027-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="Payroll" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53287">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="7" ValueSt="PR" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d026-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="&lt; 35 days" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53286">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CreatedDateTime" Condition="2" ValueSt="@Today-35" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d123-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="Wilmer Orders" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53539">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="SC WILMER" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000d023-0000-0000-0000-000000000000" UserName="BOWDAR01" ViewName="Cases" FilterName="Ongoing" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="53283">
+                                <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="Status" Condition="1" ValueSt="R" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Status" Condition="1" ValueSt="C" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="00001411-0000-0000-0000-000000000000" UserName="gehman\deannew" ViewName="Cases" FilterName="test" IsDefault="0" IsShared="0" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="5137">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="CaseClassID" Condition="0" ValueSt="ITR" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="0000150f-0000-0000-0000-000000000000" UserName="SIENAT03" ViewName="Activities" FilterName="Phone Call" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="5391">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="ClassInfo" Condition="0" ValueSt="Phone Call" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="00001508-0000-0000-0000-000000000000" UserName="SIENAT03" ViewName="Cases" FilterName="Tax Return" IsDefault="0" IsShared="0" IsShortcut="0" IsSystem="0" IsHidden="0" FilterOrder="5384">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Subject" Condition="6" ValueSt="Tax Return" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <MUIScreen IsPortal="0" WorkspaceID="3866fe7d-f682-48dd-bc5a-c737e7cef86c" Order="10" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea">
+                                <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
+                            </MUIScreen>
+                            <MUIScreen IsPortal="0" WorkspaceID="1533a77a-b939-49fa-88c5-c483495b3ff8" Order="10" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea" />
+                            <MUIScreen IsPortal="0" WorkspaceID="e4060891-27de-4ced-959f-a2c146ef6473" Order="10" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea">
+                                <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
+                            </MUIScreen>
+                            <MUIScreen IsPortal="0" WorkspaceID="bb6406ab-8be6-432f-8830-8565e3b56897" Order="10" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea">
+                                <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
+                            </MUIScreen>
+                            <MUIScreen IsPortal="0" WorkspaceID="5266a681-ad68-4b2d-b94d-0cdbd24128d6" Order="5" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea">
+                                <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
+                            </MUIScreen>
+                            <MUITile IsPortal="0" TileID="54c55590-71d9-4f04-8cdd-48bf7208cf35" WorkspaceID="bb6406ab-8be6-432f-8830-8565e3b56897" Order="20" Title="New Business Account" Icon="details" Parameters="&amp;AccountID=" />
+                            <MUITile IsPortal="0" TileID="5bd89640-6272-4882-a530-0b72bea3f450" WorkspaceID="e4060891-27de-4ced-959f-a2c146ef6473" Order="3018" Title="New Business Account" Icon="business" Parameters="&amp;AccountID=" />
+                        </row>
+                    </SiteMap>
+                </row>
+            </GIDesign>
+            <MUIWorkspace>
+                <row IsPortal="0" WorkspaceID="3866fe7d-f682-48dd-bc5a-c737e7cef86c" Order="905" Title="Secretarial Team" Icon="import_contacts" IsSystem="0" />
+                <row IsPortal="0" WorkspaceID="1533a77a-b939-49fa-88c5-c483495b3ff8" Order="915" Title="Tax Team" Icon="taxes" IsSystem="0" />
+                <row IsPortal="0" WorkspaceID="e4060891-27de-4ced-959f-a2c146ef6473" Order="119.25" Title="Support" Icon="life-bouy" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" ScreenID="WSSP0000" IsSystem="0">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+                <row IsPortal="0" WorkspaceID="bb6406ab-8be6-432f-8830-8565e3b56897" Order="121.375" Title="Opportunities" Icon="local_offer" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" ScreenID="WSSO0000" IsSystem="0">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+                <row IsPortal="0" WorkspaceID="5266a681-ad68-4b2d-b94d-0cdbd24128d6" Order="143" Title="Marketing" Icon="people" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" ScreenID="WSMK0000" IsSystem="0" />
+            </MUIWorkspace>
+            <MUISubcategory>
+                <row IsPortal="0" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea" Order="128" Name="Profiles" Icon="" IsSystem="0" />
+            </MUISubcategory>
+            <MUIArea>
+                <row IsPortal="0" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" Order="20" Name="Operations" />
+            </MUIArea>
+        </data>
+    </data-set>
+</GenericInquiryScreen>

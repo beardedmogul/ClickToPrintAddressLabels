@@ -1,0 +1,637 @@
+﻿<Report Name="gaapadve.rpx">
+    <Report Name="report1" version="20201103">
+        <Filters>
+            <FilterExp>
+                <DataField>Vendor.BAccountID</DataField>
+                <Value>@BAccountID</Value>
+            </FilterExp>
+        </Filters>
+        <LayoutUnit>Inch</LayoutUnit>
+        <PageSettings>
+            <Margins>
+                <Bottom>0.2in</Bottom>
+                <Left>0.25in</Left>
+                <Right>0.25in</Right>
+                <Top>0.35in</Top>
+            </Margins>
+            <PaperKind>Custom</PaperKind>
+            <PaperSize>3.5in, 1.2in</PaperSize>
+        </PageSettings>
+        <Parameters>
+            <ReportParameter>
+                <Name>BAccountID</Name>
+                <Prompt>Vendor ID</Prompt>
+                <ViewName>=Report.GetFieldSchema([Vendor.BAccountID])</ViewName>
+                <Visible>False</Visible>
+            </ReportParameter>
+        </Parameters>
+        <Relations>
+            <ReportRelation>
+                <ChildName>Address</ChildName>
+                <JoinType>Inner</JoinType>
+                <Links>
+                    <RelationRow>
+                        <ChildField>AddressID</ChildField>
+                        <ParentField>DefAddressID</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>Vendor</ParentName>
+            </ReportRelation>
+        </Relations>
+        <SchemaUrl>https://acumatica.gehmanaccounting.com</SchemaUrl>
+        <StylesTemplate>TemplateForm.rpx</StylesTemplate>
+        <Tables>
+            <ReportTable Name="Address">
+                <Fields>
+                    <ReportField Name="AddressID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="AddressLine1">
+                    </ReportField>
+                    <ReportField Name="AddressLine2">
+                    </ReportField>
+                    <ReportField Name="AddressLine3">
+                    </ReportField>
+                    <ReportField Name="AddressType">
+                    </ReportField>
+                    <ReportField Name="BAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="City">
+                    </ReportField>
+                    <ReportField Name="CountryID">
+                    </ReportField>
+                    <ReportField Name="CountryID_Country_description">
+                    </ReportField>
+                    <ReportField Name="CountryID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="DisplayName">
+                    </ReportField>
+                    <ReportField Name="IsValidated">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="PostalCode">
+                    </ReportField>
+                    <ReportField Name="PseudonymizationStatus">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="RevisionID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Selected">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="State">
+                    </ReportField>
+                    <ReportField Name="State_description">
+                    </ReportField>
+                    <ReportField Name="State_State_name">
+                    </ReportField>
+                    <ReportField Name="TaxLocationCode">
+                    </ReportField>
+                    <ReportField Name="TaxMunicipalCode">
+                    </ReportField>
+                    <ReportField Name="TaxSchoolCode">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.CR.Address</FullName>
+            </ReportTable>
+            <ReportTable Name="Vendor">
+                <Fields>
+                    <ReportField Name="AcctCD">
+                    </ReportField>
+                    <ReportField Name="AcctCD_Segment1">
+                    </ReportField>
+                    <ReportField Name="AcctName">
+                    </ReportField>
+                    <ReportField Name="AcctReferenceNbr">
+                    </ReportField>
+                    <ReportField Name="AllowOverrideCury">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="AllowOverrideRate">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="AutoGenerateTaxBill">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="BAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="BANKACCT_Attributes">
+                    </ReportField>
+                    <ReportField Name="BANKNAME_Attributes">
+                    </ReportField>
+                    <ReportField Name="BaseRemitContactID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Box1099">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="Box1099_AP1099Box_descr">
+                    </ReportField>
+                    <ReportField Name="Box1099_description">
+                    </ReportField>
+                    <ReportField Name="CampaignSourceID">
+                    </ReportField>
+                    <ReportField Name="CampaignSourceID_CRCampaign_campaignName">
+                    </ReportField>
+                    <ReportField Name="CampaignSourceID_description">
+                    </ReportField>
+                    <ReportField Name="CasesCount">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="ClassID">
+                    </ReportField>
+                    <ReportField Name="ConsolidateToParent">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ConsolidatingBAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="COrgBAccountID">
+                    </ReportField>
+                    <ReportField Name="COrgBAccountID_BranchItem_acctName">
+                    </ReportField>
+                    <ReportField Name="COrgBAccountID_description">
+                    </ReportField>
+                    <ReportField Name="Count">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="CuryID">
+                    </ReportField>
+                    <ReportField Name="CuryRateTypeID">
+                    </ReportField>
+                    <ReportField Name="DefAddressID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="DefAddressID_Address_displayName">
+                    </ReportField>
+                    <ReportField Name="DefAddressID_description">
+                    </ReportField>
+                    <ReportField Name="DefaultUOM">
+                    </ReportField>
+                    <ReportField Name="DefContactID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="DefLocationID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="DefLocationID_description">
+                    </ReportField>
+                    <ReportField Name="DefLocationID_Location_locationCD">
+                    </ReportField>
+                    <ReportField Name="DefPOAddressID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="DiscTakenAcctID">
+                    </ReportField>
+                    <ReportField Name="DiscTakenAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="DiscTakenAcctID_description">
+                    </ReportField>
+                    <ReportField Name="DiscTakenAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="DiscTakenSubID">
+                    </ReportField>
+                    <ReportField Name="DiscTakenSubID_description">
+                    </ReportField>
+                    <ReportField Name="DiscTakenSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="DiscTakenSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="DiscTakenSubID_Segment3">
+                    </ReportField>
+                    <ReportField Name="DiscTakenSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="EntityTypeID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="FATCA">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ForeignEntity">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="GroupMask">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="HSEntityTypeID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="IgnoreConfiguredDiscounts">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Included">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsBranch">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsCustomerOrCombined">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsLaborUnion">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LandedCostVendor">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LastActivity">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LegalName">
+                    </ReportField>
+                    <ReportField Name="LineDiscountTarget">
+                    </ReportField>
+                    <ReportField Name="LocaleName">
+                    </ReportField>
+                    <ReportField Name="LocaleName_description">
+                    </ReportField>
+                    <ReportField Name="LocaleName_Locale_translatedName">
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NotePopupText">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="OwnerID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="OwnerID_description">
+                    </ReportField>
+                    <ReportField Name="OwnerID_Owner_displayName">
+                    </ReportField>
+                    <ReportField Name="ParentBAccountID">
+                    </ReportField>
+                    <ReportField Name="ParentBAccountID_BAccountR_acctName">
+                    </ReportField>
+                    <ReportField Name="ParentBAccountID_description">
+                    </ReportField>
+                    <ReportField Name="ParentBAccountID_Segment1">
+                    </ReportField>
+                    <ReportField Name="PaymentsByLinesAllowed">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="PayToParent">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="PayToVendorID">
+                    </ReportField>
+                    <ReportField Name="PayToVendorID_BAccountR_acctName">
+                    </ReportField>
+                    <ReportField Name="PayToVendorID_description">
+                    </ReportField>
+                    <ReportField Name="PayToVendorID_Segment1">
+                    </ReportField>
+                    <ReportField Name="PayToVendorID_Vendor_acctName">
+                    </ReportField>
+                    <ReportField Name="POAccrualAcctID">
+                    </ReportField>
+                    <ReportField Name="POAccrualAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="POAccrualAcctID_description">
+                    </ReportField>
+                    <ReportField Name="POAccrualAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="POAccrualSubID">
+                    </ReportField>
+                    <ReportField Name="POAccrualSubID_description">
+                    </ReportField>
+                    <ReportField Name="POAccrualSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="POAccrualSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="POAccrualSubID_Segment3">
+                    </ReportField>
+                    <ReportField Name="POAccrualSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="PrebookAcctID">
+                    </ReportField>
+                    <ReportField Name="PrebookAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="PrebookAcctID_description">
+                    </ReportField>
+                    <ReportField Name="PrebookAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="PrebookSubID">
+                    </ReportField>
+                    <ReportField Name="PrebookSubID_description">
+                    </ReportField>
+                    <ReportField Name="PrebookSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="PrebookSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="PrebookSubID_Segment3">
+                    </ReportField>
+                    <ReportField Name="PrebookSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="PrepaymentAcctID">
+                    </ReportField>
+                    <ReportField Name="PrepaymentAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="PrepaymentAcctID_description">
+                    </ReportField>
+                    <ReportField Name="PrepaymentAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="PrepaymentSubID">
+                    </ReportField>
+                    <ReportField Name="PrepaymentSubID_description">
+                    </ReportField>
+                    <ReportField Name="PrepaymentSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="PrepaymentSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="PrepaymentSubID_Segment3">
+                    </ReportField>
+                    <ReportField Name="PrepaymentSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="PreviewHtml">
+                    </ReportField>
+                    <ReportField Name="PriceListCuryID">
+                    </ReportField>
+                    <ReportField Name="PrimaryContactID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="PseudonymizationStatus">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="PurchTaxAcctID">
+                    </ReportField>
+                    <ReportField Name="PurchTaxAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="PurchTaxAcctID_description">
+                    </ReportField>
+                    <ReportField Name="PurchTaxAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="PurchTaxSubID">
+                    </ReportField>
+                    <ReportField Name="PurchTaxSubID_description">
+                    </ReportField>
+                    <ReportField Name="PurchTaxSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="PurchTaxSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="PurchTaxSubID_Segment3">
+                    </ReportField>
+                    <ReportField Name="PurchTaxSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="RetainageApply">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="RetainagePct">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ROUTINGNUM_Attributes">
+                    </ReportField>
+                    <ReportField Name="SalesTaxAcctID">
+                    </ReportField>
+                    <ReportField Name="SalesTaxAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="SalesTaxAcctID_description">
+                    </ReportField>
+                    <ReportField Name="SalesTaxAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SalesTaxSubID">
+                    </ReportField>
+                    <ReportField Name="SalesTaxSubID_description">
+                    </ReportField>
+                    <ReportField Name="SalesTaxSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SalesTaxSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="SalesTaxSubID_Segment3">
+                    </ReportField>
+                    <ReportField Name="SalesTaxSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="Secured">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Selected">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="VStatus">
+                    </ReportField>
+                    <ReportField Name="SVATInputTaxEntryRefNbr">
+                    </ReportField>
+                    <ReportField Name="SVATOutputTaxEntryRefNbr">
+                    </ReportField>
+                    <ReportField Name="SVATReversalMethod">
+                    </ReportField>
+                    <ReportField Name="SVATTaxInvoiceNumberingID">
+                    </ReportField>
+                    <ReportField Name="SVATTaxInvoiceNumberingID_description">
+                    </ReportField>
+                    <ReportField Name="SVATTaxInvoiceNumberingID_Numbering_descr">
+                    </ReportField>
+                    <ReportField Name="TaxAgency">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="TaxExpenseAcctID">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseAcctID_description">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseSubID">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseSubID_description">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseSubID_Segment3">
+                    </ReportField>
+                    <ReportField Name="TaxExpenseSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="TaxPeriodType">
+                    </ReportField>
+                    <ReportField Name="TaxRegistrationID">
+                    </ReportField>
+                    <ReportField Name="TaxReportFinPeriod">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="TaxReportPrecision">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="TaxReportRounding">
+                    </ReportField>
+                    <ReportField Name="TaxUseVendorCurPrecision">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="TaxZoneID">
+                    </ReportField>
+                    <ReportField Name="TaxZoneID_description">
+                    </ReportField>
+                    <ReportField Name="TaxZoneID_TaxZone_descr">
+                    </ReportField>
+                    <ReportField Name="TermsID">
+                    </ReportField>
+                    <ReportField Name="TermsID_description">
+                    </ReportField>
+                    <ReportField Name="TermsID_Terms_descr">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="Type">
+                    </ReportField>
+                    <ReportField Name="UpdClosedTaxPeriods">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Vendor1099">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="VendorClassID">
+                    </ReportField>
+                    <ReportField Name="VendorClassID_description">
+                    </ReportField>
+                    <ReportField Name="VendorClassID_VendorClass_descr">
+                    </ReportField>
+                    <ReportField Name="ViewInCrm">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="VOrgBAccountID">
+                    </ReportField>
+                    <ReportField Name="VOrgBAccountID_BranchItem_acctName">
+                    </ReportField>
+                    <ReportField Name="VOrgBAccountID_description">
+                    </ReportField>
+                    <ReportField Name="WorkgroupID">
+                    </ReportField>
+                    <ReportField Name="WorkgroupID_description">
+                    </ReportField>
+                    <ReportField Name="WorkgroupID_EPCompanyTree_description">
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.AP.Vendor</FullName>
+            </ReportTable>
+        </Tables>
+        <Sections>
+            <Detail Name="detailSection1">
+                <Height>0.8in</Height>
+                <Items>
+                    <TextBox Name="textBox4">
+                        <Location>0px, 0px</Location>
+                        <Size>288px, 76px</Size>
+                        <Style>
+                            <Font>
+                                <Size>13pt</Size>
+                            </Font>
+                        </Style>
+                        <StyleName>Normal</StyleName>
+                        <Value>=IIf([Vendor.AcctName]&lt;&gt;Null,[Vendor.AcctName],'')+'{br}'#010;+IIf([Address.AddressLine1]&lt;&gt;Null,[Address.AddressLine1]+'{br}','')#010;+IIf([Address.AddressLine2]&lt;&gt;Null,[Address.AddressLine2]+'{br}','')#010;+IIf([Address.City]&lt;&gt;Null,[Address.City]+', ','')+IIf([Address.State]&lt;&gt;Null,[Address.State]+' ','')+IIf([Address.PostalCode]&lt;&gt;Null,[Address.PostalCode],'')</Value>
+                        <WrapText>False</WrapText>
+                    </TextBox>
+                </Items>
+            </Detail>
+        </Sections>
+    </Report>
+</Report>

@@ -1,0 +1,57 @@
+﻿<Graph ClassName="ClickToPrintAddressLabels_BusinessAccountMaint" Source="#CDATA" IsNew="True" FileType="NewFile">
+    <CDATA name="Source"><![CDATA[using PX.Common;
+using PX.Data;
+using PX.Objects.CR;
+using PX.Objects;
+using PX.SM;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+
+namespace ClickToPrintAddressLabels
+{
+    public class ClickToPrintAddressLabels_BusinessAccountMaint_Extension : PXGraphExtension<BusinessAccountMaint>
+    {
+        #region PrintAddressLabelMB
+        public PXAction<BAccount> PrintAddressLabelMB;
+        [PXButton(CommitChanges = true, PopupVisible = false, VisibleOnDataSource = false)]
+        [PXUIField(DisplayName = "MB")]
+        protected virtual void printAddressLabelMB()
+        {
+            var reportParams = new Dictionary<string, string>();
+            string bAccountID = Base.CurrentBAccount.Current.BAccountID.ToString();
+            reportParams.Add("BAccount.BAccountID", bAccountID);
+            var printSettings = new PrintSettings
+            {
+                PrintWithDeviceHub = true,
+                DefinePrinterManually = true,
+                PrinterID = new Guid("A4ECBE80-F583-403D-AFD8-C485E0BACB0C"),
+                NumberOfCopies = 1
+            };
+            SMPrintJobMaint g = PXGraph.CreateInstance<SMPrintJobMaint>();
+            g.AddPrintJob("Address label (MB)", printSettings, "GACRADBA", reportParams, null);
+        }
+        #endregion
+        #region PrintAddressLabelNH
+        public PXAction<BAccount> PrintAddressLabelNH;
+        [PXButton(CommitChanges = true, PopupVisible = false, VisibleOnDataSource = false)]
+        [PXUIField(DisplayName = "NH")]
+        protected virtual void printAddressLabelNH()
+        {
+            var reportParams = new Dictionary<string, string>();
+            string bAccountID = Base.CurrentBAccount.Current.BAccountID.ToString();
+            reportParams.Add("BAccount.BAccountID", bAccountID);
+            var printSettings = new PrintSettings
+            {
+                PrintWithDeviceHub = true,
+                DefinePrinterManually = true,
+                PrinterID = new Guid("22BD7FCA-037C-4A8E-9145-2ADCFBF71BEE"),
+                NumberOfCopies = 1
+            };
+            SMPrintJobMaint g = PXGraph.CreateInstance<SMPrintJobMaint>();
+            g.AddPrintJob("Address label (NH)", printSettings, "GACRADBA", reportParams, null);
+        }
+        #endregion
+    }
+}]]></CDATA>
+</Graph>
